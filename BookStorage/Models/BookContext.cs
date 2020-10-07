@@ -10,7 +10,7 @@ namespace BookStorage.Models
 
         public BookContext(DbContextOptions<BookContext> options) : base(options)
         {
-            Database.EnsureCreated();
+            //Database.EnsureCreated();
         }
 
     }

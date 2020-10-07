@@ -17,6 +17,11 @@ namespace BookStorage.Controllers
         public HomeController(BookContext context)
         {
             db = context;
+            if (!db.Books.Any())
+            {
+                db.Add(new Book {Name = "aefasf", Author = "sefd", Pages = 321});
+                db.SaveChanges();
+            }
         }
 
         [HttpGet]
