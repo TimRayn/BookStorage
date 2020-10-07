@@ -5,20 +5,23 @@
     });
     if (response.ok === true) {
         const books = await response.json();
-        let description = document.querySelector(".description");
         let cells = document.querySelector(".cell-wrapper");
         cells.innerHTML = "";
-        let booksNumber = 0;
         books.forEach(book => {
             cells.append(drawBook(book));
-            booksNumber++;
         });
-        if (booksNumber === 1){
-            description.innerHTML = "You have 1 book";
-        }
-        else{
-            description.innerHTML = "You have " + booksNumber + " books";
-        }
+    }
+    writeNumberOfBooks();
+}
+
+function writeNumberOfBooks(){
+    let number = document.getElementsByClassName("book").length;
+    let description = document.querySelector(".description");
+    if (number === 1){
+        description.innerHTML = "You have 1 book";
+    }
+    else{
+        description.innerHTML = "You have " + number + " books";
     }
 }
 
@@ -46,6 +49,7 @@ async function createBook() {
         document.querySelector(".cell-wrapper").append(drawBook(book));
     }
     toggleCreateBookModal();
+    writeNumberOfBooks();
 }
 
 async function deleteBook(id) {
@@ -57,6 +61,7 @@ async function deleteBook(id) {
         const book = await response.json();
         document.querySelector("[book-id='" + book.bookId + "']").remove();
     }
+    writeNumberOfBooks();
 }
 
 function drawBook(book) {
