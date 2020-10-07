@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Book Storage</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="modal">
+        <div class="form-wrapper">
+            <form class="create-book-form">
+                <div class="form-input-block">
+                    <label for="name">Name of book</label>
+                    <input class="form-control" name="name"/>
+                </div>
+                <div class="form-input-block">
+                    <label for="author">Author</label>
+                    <input class="form-control" name="author" />
+                </div>
+                <div class="form-input-block">
+                    <label for="pages">Pages</label>
+                    <input class="form-control" name="pages" />
+                </div>
+                <div class="panel-body">
+                    <button type="button" onclick="createBook()">Ok</button>
+                    <button type="button" onclick="toggleCreateBookModal()">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="desc">
+        <div class="wrapper">
+            <h2 class="description"></h2>
+            <button class="create-book-button" onclick="toggleCreateBookModal()">Create book</button>
+        </div>
+    </div>
+    <div class="cell-wrapper"></div>
+</body>
+</html>
+
+<script src="index.js"></script>
